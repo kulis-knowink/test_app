@@ -13,10 +13,21 @@ defmodule TestAppWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :auth0token do
+    plug TestAppWeb.AuthZeroPlug
+    plug TestAppWeb.TenantIdPlug
+  end
+
+
   scope "/", TestAppWeb do
     pipe_through :browser
 
     get "/", PageController, :index
+  end
+
+  scope "/api", TestAppWeb do
+    pipe_through :auth0token
+    resources "/roles", RoleController, only: [:create, :delete, :index]
   end
 
   # Other scopes may use custom stacks.

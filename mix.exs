@@ -45,7 +45,13 @@ defmodule TestApp.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:peerage, "~> 1.0"}
+      {:peerage, "~> 1.0"},
+      {:joken, "~> 2.3.0"},
+      {:jose, "~> 1.11.1"},
+      {:proper_case, "~> 1.0.2"},
+      {:json, "~> 1.4"},
+      {:httpoison, "~> 1.8"},
+      {:poison, "~> 3.0"},
     ]
   end
 
